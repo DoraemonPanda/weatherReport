@@ -6,8 +6,104 @@
 <!-- Add Bootstrap CDN link -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<!-- Add custom CSS style -->
+
 <style>
+
+body {
+	background-color: #003366;
+	color: white;
+	font-family: Arial, sans-serif;
+}
+
+h1 {
+	color: #F31111;
+	text-shadow: none;
+	/* Use relative unit for font size */
+	font-size: 5vw;
+}
+
+.form-inline {
+	display: -ms-flexbox;
+	display: grid;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-ms-flex-align: center;
+	align-items: center;
+	text-align: center;
+}
+
+.text-center {
+	text-align: center !important;
+	margin-bottom: revert-layer;
+}
+
+.mylabel {
+	font-family: Arial, sans-serif;
+	color: white;
+	margin-right: 10px;
+	/* Use relative unit for font size */
+	font-size: 2vw;
+	text-align: center;
+	max-width: fit-content;
+	padding-bottom: 50px;
+}
+
+.form-control {
+	border-radius: none;
+	background-color: #003366;
+	border: none;
+	border-bottom: 2px solid white;
+	color: white;
+}
+
+.btn {
+	align-content: center;
+	border: none;
+	background-color: #00ccff;
+	color: black;
+	font-weight: bold;
+	margin-top: 50px;
+}
+
+.link {
+	color: #00a0d2;
+	text-decoration: none;
+}
+
+.container {
+	background-color: #003366;
+	border: none;
+}
+
+/* Add media query for smaller screens */
+@media screen and (max-width: 481px) {
+	/* Stack the form elements vertically */
+	.form-inline {
+		display: block;
+	}
+	/* Adjust the margins and padding for the form elements */
+	.form-group {
+		margin: 10px;
+	}
+	.form-control {
+		width: 80%;
+		margin: auto;
+	}
+	.btn {
+		width: 80%;
+		margin: auto;
+	}
+	.link {
+		display: block;
+		text-align: center;
+	}
+}
+
+
+</style>
+
+
+<!-- <style>
 body {
 	background-color: #003366;
 	color: white;
@@ -71,7 +167,7 @@ h1 {
 	background-color: #003366;
 	border: none;
 }
-</style>
+</style> -->
 </head>
 <body>
 	<div class="container mt-5">

@@ -9,9 +9,102 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
- -->
+
 <style>
+
+body {
+	background: linear-gradient(to bottom, #0a2e38, #000c40);
+	font-family: Arial, sans-serif;
+	color: white;
+}
+
+.container {
+	/* Use relative unit for max-width */
+	max-width: 80%;
+	margin: 50px auto;
+	text-align: center;
+}
+
+.temp {
+	/* Use relative unit for font size */
+	font-size: 10vw;
+	font-weight: bold;
+}
+
+.condition {
+	/* Use relative unit for font size */
+	font-size: 3vw;
+}
+
+.details {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 0;
+}
+
+.detail {
+	/* Use relative unit for font size */
+	font-size: 2vw;
+}
+
+.location {
+	/* Use relative unit for font size */
+	font-size: 5vw;
+	font-weight: bold;
+}
+
+.forecast-slider {
+	display: flex;
+	overflow-x: auto;
+	justify-content: space-between;
+	margin: 20px 0;
+}
+
+.hour {
+	/* Use relative unit for font size */
+	font-size: 2vw;
+	flex: 0 0 auto;
+	width: 90px;
+}
+
+.icon {
+	width: 40px;
+	height: 40px;
+}
+
+.link {
+	color: #00a0d2;
+	text-decoration: none;
+}
+
+/* Add media query for smaller screens */
+@media screen and (max-width: 481px) {
+	/* Adjust the margins and padding for the container */
+	.container {
+		margin: 20px auto;
+	}
+	/* Adjust the font size for the temp */
+	.temp {
+		font-size: 15vw;
+	}
+	/* Adjust the font size for the condition */
+	.condition {
+		font-size: 4vw;
+	}
+	/* Adjust the font size for the location */
+	.location {
+		font-size: 6vw;
+	}
+	/* Adjust the width for the hour */
+	.hour {
+		width: 70px;
+	}
+}
+
+
+</style>
+
+<!-- <style>
 body {
 	background: linear-gradient(to bottom, #0a2e38, #000c40);
 	font-family: Arial, sans-serif;
@@ -81,7 +174,7 @@ body {
 	color: #00a0d2;
 	text-decoration: none;
 }
-</style>
+</style> -->
 </head>
 <body>
 	<div class="container">
