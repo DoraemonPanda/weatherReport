@@ -29,53 +29,57 @@ body {
 
 .temp {
 	/* Use relative font size instead of absolute */
-	font-size: 8rem;
+	font-size: 6rem;
 	font-weight: bold;
 }
 
 .condition {
 	/* Use relative font size instead of absolute */
-	font-size: 2.4rem;
+	font-size: 1.8rem;
 }
 
 .details {
 	display: flex;
-	justify-content: space-between;
-	margin: 20px 0;
+	justify-content: center;
+	
+
 }
 
 .detail {
 	/* Use relative font size instead of absolute */
-	font-size: 1.8rem;
+	font-size: 1.5rem;
+	margin: 1rem;
+	
 }
+
+
 
 .location {
 	/* Use relative font size instead of absolute */
-	font-size: 3.2rem;
+    font-size: 2.2rem;
 	font-weight: bold;
 }
 
-/* .forecast {
-	display: flex;
-	justify-content: space-between;
-	margin: 20px 0;
-} */
 
-/* .hour {
-	font-size: 16px;
-} */
+
+
 .forecast-slider {
-	display: flex;
-	overflow-x: auto;
-	justify-content: space-between;
-	margin: 20px 0;
+    width: 490px;
+    display: flex;
+    overflow-x: auto;
+    justify-content: space-between;
+    justify-content: center;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .hour {
 	/* Use relative font size instead of absolute */
-	font-size: 1.6rem;
+	font-size: 1.2rem;
 	flex: 0 0 auto;
-	width: 90px;
+    width: 7.5rem;
 }
 
 .icon {
@@ -95,35 +99,43 @@ body {
     max-width: 80%;
   }
   .forecast-slider {
-    width: 80%;
+   
   }
   /* Adjust the font size of the temp and location elements */
   .temp {
-    font-size: 6rem;
+    font-size: 4rem;
   }
   .location {
     font-size: 2.4rem;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   /* For tablet devices, make the container and forecast-slider elements slightly wider */
   .container {
     max-width: 60%;
   }
-  .forecast-slider {
-    width: 60%;
-  }
+.forecast-slider {
+    width: auto;
+    display: flex;
+    overflow-x: auto;
+    justify-content: space-between;
+    justify-content: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
   /* Adjust the font size of the temp and location elements */
   .temp {
-    font-size: 7rem;
+    font-size: 6rem;
   }
   .location {
     font-size: 2.8rem;
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   /* For laptop and desktop devices, keep the original styles */
 }
 </style>
@@ -134,32 +146,33 @@ body {
 
 		<div class="temp">
 
-			<span th:text="${temp_c} + '&#176;C'"></span>
+			<span th:text="${temp_c} + '°C'">11.0°C</span>
 		</div>
 		<div class="condition">
-			<span th:text="${text}"></span>
+			<span th:text="${text}">Mist</span>
 		</div>
 		<div class="details">
 			<div class="detail">
-				High: <span th:text="${maxTempC} + '&#176;C'"></span>
+				High: <span th:text="${maxTempC} + '°C'">22.2°C</span>
 			</div>
 			<div class="detail">
-				Low: <span th:text="${minTempC} + '&#176;C'"></span>
+				Low: <span th:text="${minTempC} + '°C'">11.1°C</span>
 			</div>
 			<div class="detail">
-				Humidity: <span th:text="${humidity} + '%'"></span>
+				Humidity: <span th:text="${humidity} + '%'">94%</span>
 			</div>
 		</div>
 		<div class="location">
-			<span th:text="${name}"></span>
+			<span th:text="${name}">Lucknow</span>
 		</div>
 		<div class="forecast-slider">
 			<div th:each="hour : ${listHourHM}" class="hour p-2">
-				<div th:text="${hour.temp_c} + '&#176;C'">Temperature</div>
+				<div th:text="${hour.temp_c} + '°C'">13.2°C</div>
 				<img th:src="${hour.icon}" alt="Weather Icon"></img>
-				<div th:text="${hour.humidity} + '%'">Humidity</div>
-				<div th:text="${hour.time}">Time</div>
+				<div th:text="${hour.humidity} + '%'">61%</div>
+				<div th:text="${hour.time}">12 AM</div>
 			</div>
+			
 		</div>
 
 		<a href="https://weather.com" class="link">More on weather.com</a>

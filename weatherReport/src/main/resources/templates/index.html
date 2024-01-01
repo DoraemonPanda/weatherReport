@@ -68,7 +68,7 @@ h1 {
 }
 
 /* Add media queries for different screen sizes and orientations */
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   /* For mobile devices, make the form elements stack vertically */
   .form-inline {
     display: block;
@@ -84,13 +84,34 @@ h1 {
   }
 }
 
+
+
+@media (min-width: 576px) and (max-width: 769px) {
+  /* For small tablet devices, make the form elements slightly smaller */
+
+.form-inline .form-group {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+}
+
+
+
+
 @media (min-width: 769px) and (max-width: 1024px) {
   /* For tablet devices, make the form elements slightly smaller */
   .form-control {
     width: 40%;
   }
   .btn {
-    width: 20%;
+    width: 40%;
   }
 }
 
@@ -100,7 +121,7 @@ h1 {
     width: 60%;
   }
   .btn {
-    width: 30%;
+    width: 50%;
   }
 }
 </style>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -9,7 +8,6 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <!-- Add custom CSS style -->
 <style>
-
 body {
 	background-color: #003366;
 	color: white;
@@ -19,8 +17,8 @@ body {
 h1 {
 	color: #F31111;
 	text-shadow: none;
-	/* Use relative unit for font size */
-	font-size: 5vw;
+	/* Use relative font size instead of absolute */
+	font-size: 5rem;
 }
 
 .form-inline {
@@ -41,9 +39,9 @@ h1 {
 .mylabel {
 	font-family: Arial, sans-serif;
 	color: white;
-	margin-right: 10px;
-	/* Use relative unit for font size */
-	font-size: 2vw;
+	margin: 0 auto;
+	/* Use relative font size instead of absolute */
+	font-size: 1.5rem;
 	text-align: center;
 	max-width: fit-content;
 	padding-bottom: 50px;
@@ -76,31 +74,42 @@ h1 {
 	border: none;
 }
 
-/* Add media query for smaller screens */
-@media screen and (max-width: 481px) {
-	/* Stack the form elements vertically */
-	.form-inline {
-		display: block;
-	}
-	/* Adjust the margins and padding for the form elements */
-	.form-group {
-		margin: 10px;
-	}
-	.form-control {
-		width: 80%;
-		margin: auto;
-	}
-	.btn {
-		width: 80%;
-		margin: auto;
-	}
-	.link {
-		display: block;
-		text-align: center;
-	}
+/* Add media queries for different screen sizes and orientations */
+@media (max-width: 768px) {
+  /* For mobile devices, make the label and link elements stack vertically */
+  .form-inline {
+    display: block;
+  }
+  /* Adjust the margin and width of the label and link elements */
+  .mylabel {
+    margin: 10px auto;
+    width: 80%;
+  }
+  .link {
+    margin: 10px auto;
+    width: 80%;
+  }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* For tablet devices, make the label and link elements slightly smaller */
+  .mylabel {
+    width: 60%;
+  }
+  .link {
+    width: 20%;
+  }
+}
 
+@media (min-width: 1025px) {
+  /* For laptop and desktop devices, make the label and link elements larger */
+  .mylabel {
+    width: 80%;
+  }
+  .link {
+    width: 40%;
+  }
+}
 </style>
 </head>
 <body>
