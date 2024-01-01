@@ -146,17 +146,17 @@ body {
 
 		<div class="temp">
 
-			<span th:text="${temp_c} + '°C'">11.0°C</span>
+			<span th:text="${temp_c} + '&#176;C'">11.0&#176;C</span>
 		</div>
 		<div class="condition">
 			<span th:text="${text}">Mist</span>
 		</div>
 		<div class="details">
 			<div class="detail">
-				High: <span th:text="${maxTempC} + '°C'">22.2°C</span>
+				High: <span th:text="${maxTempC} + '&#176;C'">22.2&#176;C</span>
 			</div>
 			<div class="detail">
-				Low: <span th:text="${minTempC} + '°C'">11.1°C</span>
+				Low: <span th:text="${minTempC} + '&#176;C'">11.1&#176;C</span>
 			</div>
 			<div class="detail">
 				Humidity: <span th:text="${humidity} + '%'">94%</span>
@@ -167,7 +167,7 @@ body {
 		</div>
 		<div class="forecast-slider">
 			<div th:each="hour : ${listHourHM}" class="hour p-2">
-				<div th:text="${hour.temp_c} + '°C'">13.2°C</div>
+				<div th:text="${hour.temp_c} + '&#176;C'">13.2&#176;C</div>
 				<img th:src="${hour.icon}" alt="Weather Icon"></img>
 				<div th:text="${hour.humidity} + '%'">61%</div>
 				<div th:text="${hour.time}">12 AM</div>
