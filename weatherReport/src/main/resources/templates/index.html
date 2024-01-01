@@ -6,95 +6,8 @@
 <!-- Add Bootstrap CDN link -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	
-<style>
-
-body {
-	background-color: #003366;
-	color: white;
-	font-family: Arial, sans-serif;
-}
-
-h1 {
-	color: white;
-	text-shadow: none;
-	/* Use relative unit for font size */
-	font-size: 5vw;
-}
-
-.form-inline {
-	display: -ms-flexbox;
-	display: grid;
-	-ms-flex-flow: row wrap;
-	flex-flow: row wrap;
-	-ms-flex-align: center;
-	align-items: center;
-	text-align: center;
-}
-
-.text-center {
-	text-align: center !important;
-	margin-bottom: revert-layer;
-	margin-bottom: 50px;
-}
-
-.mylabel {
-	font-family: Arial, sans-serif;
-	color: white;
-	margin-right: 10px;
-	/* Use relative unit for font size */
-	font-size: 3vw;
-}
-
-.form-control {
-	border-radius: none;
-	background-color: #003366;
-	border: none;
-	border-bottom: 2px solid white;
-	color: white;
-}
-
-.btn {
-	align-content: center;
-	border: none;
-	background-color: #00ccff;
-	color: black;
-	font-weight: bold;
-	margin-top: 50px;
-}
-
-.container {
-	background-color: #003366;
-	border: none;
-}
-
-/* Add media query for smaller screens */
-@media screen and (max-width: 481px) {
-	/* Stack the form elements vertically */
-	.form-inline {
-		display: block;
-	}
-	/* Adjust the margins and padding for the form elements */
-	.form-group {
-		margin: 10px;
-	}
-	.form-control {
-		width: 80%;
-		margin: auto;
-	}
-	.btn {
-		width: 80%;
-		margin: auto;
-	}
-}
-
-
-</style>	
-	
-	
-	
 <!-- Add custom CSS style -->
-<!-- <style>
+<style>
 body {
 	background-color: #003366;
 	color: white;
@@ -104,7 +17,8 @@ body {
 h1 {
 	color: white;
 	text-shadow: none;
-	font-size: -webkit-xxx-large;
+	/* Use relative font size instead of absolute */
+	font-size: 5rem;
 }
 
 .form-inline {
@@ -127,7 +41,8 @@ h1 {
 	font-family: Arial, sans-serif;
 	color: white;
 	margin-right: 10px;
-	font-size: larger;
+	/* Use relative font size instead of absolute */
+	font-size: 1.5rem;
 }
 
 .form-control {
@@ -151,7 +66,44 @@ h1 {
 	background-color: #003366;
 	border: none;
 }
-</style> -->
+
+/* Add media queries for different screen sizes and orientations */
+@media (max-width: 768px) {
+  /* For mobile devices, make the form elements stack vertically */
+  .form-inline {
+    display: block;
+  }
+  /* Adjust the margin and width of the input and button */
+  .form-control {
+    margin: 10px auto;
+    width: 80%;
+  }
+  .btn {
+    margin: 10px auto;
+    width: 80%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* For tablet devices, make the form elements slightly smaller */
+  .form-control {
+    width: 40%;
+  }
+  .btn {
+    width: 20%;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* For laptop and desktop devices, make the form elements larger */
+  .form-control {
+    width: 60%;
+  }
+  .btn {
+    width: 30%;
+  }
+}
+</style>
 </head>
 <body>
 	<div class="container mt-5">
