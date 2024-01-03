@@ -1,307 +1,517 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Weather Report</title>
-    <meta property="og:title" content="Smart Closed Porpoise" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta property="twitter:card" content="summary_large_image" />
-	
-<style>
-	
+<html lang="en">
+	<head>
+		<title>Smart Closed Porpoise</title>
+		<meta property="og:title" content="Smart Closed Porpoise"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta charset="utf-8"/>
+		<meta property="twitter:card" content="summary_large_image"/>
+		<style data-tag="reset-style-sheet">
+html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+</style>
+		<style data-tag="default-style-sheet">
+html {
+font-family: Inter;
+font-size: 16px;
+}
+
+body {
+font-weight: 400;
+font-style:normal;
+text-decoration: none;
+text-transform: none;
+letter-spacing: normal;
+line-height: 1.15;
+color: var(--dl-color-gray-black);
+background-color: var(--dl-color-gray-white);
+
+}
+</style>
+		<style>
 .home-container {
-  width: 100%;
-  display: flex;
-  overflow: auto;
-  min-height: 100vh;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: #003366;
+width: 100%;
+display: flex;
+overflow: auto;
+min-height: 100vh;
+align-items: center;
+flex-direction: column;
+justify-content: flex-start;
+background-color: #003366;
 }
 .home-container01 {
-  flex: 1;
-  width: 861px;
-  height: 677px;
-  display: flex;
-  position: relative;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: #003366;
+flex: 1;
+width: 721px;
+height: 677px;
+display: flex;
+position: relative;
+align-items: center;
+flex-direction: column;
+justify-content: flex-start;
+background-color: #003366;
 }
 .home-container02 {
-  width: 100%;
-  height: 57px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
+width: 100%;
+height: 57px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .home-text {
-  color: rgb(255, 255, 255);
-  font-size: 18px;
+color: rgb(255, 255, 255);
+font-size: 18px;
 }
 .home-container03 {
-  width: 100%;
-  height: 99px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+width: 100%;
+height: 99px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .home-text1 {
-  color: rgb(255, 255, 255);
-  font-size: 80px;
+color: rgb(255, 255, 255);
+font-size: 80px;
+font-style: normal;
+font-weight: 600;
 }
 .home-container04 {
-  width: 100%;
-  height: 57px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+width: 100%;
+height: 57px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .home-text2 {
-  color: rgb(255, 255, 255);
-  font-size: 24px;
+color: rgb(255, 255, 255);
+font-size: 24px;
 }
 .home-container05 {
-  color: var(--dl-color-success-500);
-  width: 751px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.home-text3 {
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-}
-.home-text4 {
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-}
-.home-text5 {
-  color: #ffffff;
-  font-size: 20px;
+color: white;
+width: 100%;
+height: 60px;
+display: flex;
+align-items: center;
+flex-direction: row;
+justify-content: space-between;
 }
 .home-container06 {
-  width: 100%;
-  height: 79px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+color: white;
+width: 137px;
+height: 100%;
+display: flex;
+align-items: flex-start;
+flex-direction: column;
+justify-content: center;
 }
-.home-text6 {
-  color: rgb(255, 255, 255);
-  font-size: 32px;
+.home-text3 {
+color: #ffffff;
+font-size: 20px;
 }
 .home-container07 {
-  width: 100%;
-  height: 210px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+color: white;
+width: 137px;
+height: 100%;
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: center;
+}
+.home-text4 {
+color: #ffffff;
+font-size: 20px;
 }
 .home-container08 {
-  width: 616px;
-  height: 195px;
+color: white;
+width: 137px;
+height: 100%;
+display: flex;
+align-items: flex-end;
+flex-direction: column;
+justify-content: center;
+}
+.home-text5 {
+color: #ffffff;
+font-size: 20px;
 }
 .home-container09 {
-  display: contents;
+width: 100%;
+height: 82px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.home-text6 {
+color: rgb(255, 255, 255);
+font-size: 32px;
 }
 .home-container10 {
-  width: 100%;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+width: 100%;
+height: 210px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.home-container11 {
+width: 616px;
+height: 195px;
 }
 .home-container12 {
-  display: contents;
+display: contents;
+}
+.home-container13 {
+width: 100%;
+height: 38px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.home-container15 {
+display: contents;
+}
+@media(max-width: 1200px) {
+.home-container01 {
+width: 637px;
+}
+.home-container05 {
+width: 100%;
+}
+.home-container06 {
+width: 135px;
+height: 58px;
+}
+.home-container07 {
+width: 135px;
+height: 58px;
+}
+.home-container08 {
+width: 135px;
+height: 58px;
+}
+.home-container11 {
+width: 530px;
+}
+}
+@media(max-width: 991px) {
+.home-container01 {
+width: 623px;
+}
+.home-text1 {
+color: rgb(255, 255, 255);
+font-size: 80px;
+font-style: normal;
+font-weight: 600;
+}
+.home-container05 {
+width: 100%;
+}
+.home-container06 {
+width: 134px;
+height: 58px;
+}
+.home-container07 {
+width: 134px;
+height: 58px;
+}
+.home-container08 {
+width: 134px;
+height: 58px;
+}
+.home-container09 {
+height: 83px;
+}
+.home-container13 {
+width: 100%;
+}
 }
 @media(max-width: 767px) {
-  .home-container03 {
-    height: 108px;
-  }
-  .home-container04 {
-    height: 55px;
-  }
-  .home-container05 {
-    width: 608px;
-    height: 63px;
-  }
-  .home-container06 {
-    height: 76px;
-  }
-  .home-container07 {
-    height: 190px;
-  }
+.home-container01 {
+width: 576px;
+height: 817px;
+}
+.home-container03 {
+height: 108px;
+}
+.home-container04 {
+height: 55px;
+}
+.home-container05 {
+width: 100%;
+height: 63px;
+}
+.home-container06 {
+width: 140px;
+height: 100%;
+}
+.home-container07 {
+width: 140px;
+height: 100%;
+}
+.home-container08 {
+width: 140px;
+height: 100%;
+}
+.home-container09 {
+height: 86px;
+}
+.home-container10 {
+height: 190px;
+}
 }
 @media(max-width: 479px) {
-  .home-container01 {
-    width: 100%;
-    height: 729px;
-  }
-  .home-container02 {
-    width: 479px;
-  }
-  .home-container03 {
-    width: 479px;
-  }
-  .home-text1 {
-    color: rgb(255, 255, 255);
-    font-size: 80px;
-  }
-  .home-container04 {
-    width: 479px;
-  }
-  .home-container05 {
-    width: 421px;
-    height: 62px;
-  }
-  .home-container06 {
-    width: 479px;
-    height: 52px;
-  }
-  .home-text6 {
-    color: rgb(255, 255, 255);
-    font-size: 32px;
-  }
-  .home-container07 {
-    width: 479px;
-    height: 193px;
-    margin-bottom: 0px;
-  }
-  .home-container08 {
-    width: 375px;
-  }
-  .home-container10 {
-    width: 479px;
-    height: 39px;
-  }
+.home-container01 {
+width: 342px;
+height: 729px;
+}
+.home-container02 {
+width: 100%;
+}
+.home-container03 {
+width: 100%;
+}
+.home-text1 {
+color: rgb(255, 255, 255);
+}
+.home-container04 {
+width: 100%;
+}
+.home-container05 {
+width: 100%;
+height: 62px;
+padding-left: 0px;
+}
+.home-container06 {
+width: 62px;
+height: 100%;
+flex-direction: column;
+}
+.home-text3 {
+color: rgb(255, 255, 255);
+}
+.home-container07 {
+width: 62px;
+height: 100%;
+flex-direction: column;
+}
+.home-text4 {
+color: rgb(255, 255, 255);
+}
+.home-container08 {
+width: 62px;
+height: 100%;
+flex-direction: column;
+}
+.home-text5 {
+color: rgb(255, 255, 255);
+}
+.home-container09 {
+width: 100%;
+height: 78px;
+}
+.home-text6 {
+color: rgb(255, 255, 255);
+font-size: 32px;
+}
+.home-container10 {
+width: 100%;
+height: 193px;
+margin-bottom: 0px;
+}
+.home-container11 {
+width: 321px;
+}
+.home-container13 {
+width: 100%;
+height: 39px;
+}
 }
 
-	
-	</style>
 
-    <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
+</style>
+		<style>
+:root {
+--dl-color-gray-500: #595959;
+--dl-color-gray-700: #999999;
+--dl-color-gray-900: #D9D9D9;
+--dl-size-size-large: 144px;
+--dl-size-size-small: 48px;
+--dl-color-danger-300: #A22020;
+--dl-color-danger-500: #BF2626;
+--dl-color-danger-700: #E14747;
+--dl-color-gray-black: #000000;
+--dl-color-gray-white: #FFFFFF;
+--dl-size-size-medium: 96px;
+--dl-size-size-xlarge: 192px;
+--dl-size-size-xsmall: 16px;
+--dl-space-space-unit: 16px;
+--dl-color-primary-100: #003EB3;
+--dl-color-primary-300: #0074F0;
+--dl-color-primary-500: #14A9FF;
+--dl-color-primary-700: #85DCFF;
+--dl-color-success-300: #199033;
+--dl-color-success-500: #32A94C;
+--dl-color-success-700: #4CC366;
+--dl-size-size-xxlarge: 288px;
+--dl-size-size-maxwidth: 1400px;
+--dl-radius-radius-round: 50%;
+--dl-space-space-halfunit: 8px;
+--dl-space-space-sixunits: 96px;
+--dl-space-space-twounits: 32px;
+--dl-radius-radius-radius2: 2px;
+--dl-radius-radius-radius4: 4px;
+--dl-radius-radius-radius8: 8px;
+--dl-space-space-fiveunits: 80px;
+--dl-space-space-fourunits: 64px;
+--dl-space-space-threeunits: 48px;
+--dl-space-space-oneandhalfunits: 24px;
+}
+.button {
+color: var(--dl-color-gray-black);
+display: inline-block;
+padding: 0.5rem 1rem;
+border-color: var(--dl-color-gray-black);
+border-width: 1px;
+border-radius: 4px;
+background-color: var(--dl-color-gray-white);
+}
+.input {
+color: var(--dl-color-gray-black);
+cursor: auto;
+padding: 0.5rem 1rem;
+border-color: var(--dl-color-gray-black);
+border-width: 1px;
+border-radius: 4px;
+background-color: var(--dl-color-gray-white);
+}
+.textarea {
+color: var(--dl-color-gray-black);
+cursor: auto;
+padding: 0.5rem;
+border-color: var(--dl-color-gray-black);
+border-width: 1px;
+border-radius: 4px;
+background-color: var(--dl-color-gray-white);
+}
+.list {
+width: 100%;
+margin: 1em 0px 1em 0px;
+display: block;
+padding: 0px 0px 0px 1.5rem;
+list-style-type: none;
+list-style-position: outside;
+}
+.list-item {
+display: list-item;
+}
+.teleport-show {
+display: flex !important;
+transform: none !important;
+}
 
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
+.Heading {
+font-size: 32px;
+font-family: Inter;
+font-weight: 700;
+line-height: 1.15;
+text-transform: none;
+text-decoration: none;
+}
+.Content {
+font-size: 16px;
+font-family: Inter;
+font-weight: 400;
+line-height: 1.15;
+text-transform: none;
+text-decoration: none;
+}
+</style>
+		<style>
 
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
-    />
-  </head>
-  <body>
-    <link rel="stylesheet" href="./style.css" />
-    <div>
-      <link href="./index.css" rel="stylesheet" />
+.forecast-slider {
+display: flex;
+overflow-x: auto;
+justify-content: space-between;
 
-      <div class="home-container">
-        <div class="home-container01">
-          <div class="home-container02">
-            <span class="home-text">Currently</span>
-          </div>
-          <div class="home-container03">
-			<span th:text="${temp_c} + '&#176;C'" class="home-text1">11.0°C</span>
-            <!-- <span class="home-text1">22 C</span> -->
-          </div>
-          <div class="home-container04">
-			<span th:text="${text}" class="home-text2">Mist</span>
-            <!-- <span class="home-text2">Mist</span> -->
-          </div>
-          <div class="home-container05">
-			<span th:text="'High: ' + ${maxTempC} + '&#176;C'" class="home-text3">22.2°C</span>
-			<span th:text="'Low: ' + ${minTempC} + '&#176;C'" class="home-text4">11.1°C</span>
-			<span th:text="'Humidity: ' + ${humidity} + '%'" class="home-text5">94%</span>
-            <!-- <span class="home-text3">High: 22.2 C</span> -->
-            <!-- <span class="home-text4">High: 22.2 C</span> -->
-            <!-- <span class="home-text5">High: 22.2 C</span> -->
-          </div>
-          <div class="home-container06">
-			<span th:text="${name}" class="home-text6">Lucknow</span>
-            <!-- <span class="home-text6">Luckonw</span> -->
-          </div>
-          <div class="home-container07">
-            <div class="home-container08">
-              <div class="home-container09">
-                <style>
+}
 
-                  .forecast-slider {
-                  	display: flex;
-                  	overflow-x: auto;
-                  	justify-content: space-between;
+.hour {
+font-size: 20px;
+flex: 0 0 auto;
+width: 90px;
+color: white;
+margin: 10px;
+}
 
-                  }
+.link {
+color: #00a0d2;
+text-decoration: none;
+}
+</style>
+		<style>
 
-                  .hour {
-                  	font-size: 20px;
-                  	flex: 0 0 auto;
-                  	width: 90px;
-                  	color: white;
-                  	margin: 10px;
-                  }
-
-                  .link {
-                  	color: #00a0d2;
-                  	text-decoration: none;
-                  }
-                </style>
-
-                <div class="forecast-slider">
-                  <div th:each="hour : ${listHourHM}" class="hour p-2">
-                    <div th:text="${hour.temp_c} +  '&#176;C'"></div>
-                    <img th:src="${hour.icon}" alt="Weather Icon" />
-                    <div th:text="${hour.humidity} +  '%'"></div>
-                    <div th:text="${hour.time}">12 AM</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="home-container10">
-            <div>
-              <div class="home-container12">
-                <style>
-
-                  .link {
-                  	color: #00a0d2;
-                  	text-decoration: none;
-                  }
-                </style>
-
-                <a href="https://weather.com" class="link">
-                  More on weather.com
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+.link {
+color: #00a0d2;
+text-decoration: none;
+}
+</style>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font"/>
+		<link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"/>
+	</head>
+	<body>
+		<link rel="stylesheet" href="./style.css"/>
+		<div>
+			<link href="./index.css" rel="stylesheet"/>
+			<div class="home-container">
+				<div class="home-container01">
+					<div class="home-container02">
+						<span class="home-text">Currently</span>
+					</div>
+					<div class="home-container03">
+						<span th:text="${temp_c} + '&#176;C'" class="home-text1">11.0&#176;C</span>
+						<!-- <span class="home-text1">22 C</span> -->
+					</div>
+					<div class="home-container04">
+						<span th:text="${text}" class="home-text2">Mist</span>
+						<!-- <span class="home-text2">Mist</span> -->
+					</div>
+					<div class="home-container05">
+						<div class="home-container06">
+							<span th:text="'High: ' + ${maxTempC} + '&#176;C'" class="home-text3">22.2&#176;C</span>
+							<!-- <span class="home-text3">High: 22.2 C</span> -->
+						</div>
+						<div class="home-container07">
+							<span th:text="'Low: ' + ${minTempC} + '&#176;C'" class="home-text4">11.1&#176;C</span>
+							<!-- <span class="home-text4">High: 22.2 C</span> -->
+						</div>
+						<div class="home-container08">
+							<span th:text="'Humidity: ' + ${humidity} + '%'" class="home-text5">94%</span>
+							<!-- <span class="home-text5">High: 22.2 C</span> -->
+						</div>
+					</div>
+					<div class="home-container09">
+						<span class="home-text6">Lucknow</span>
+					</div>
+					<div class="home-container10">
+						<div class="home-container11">
+							<div class="home-container12">
+								<div class="forecast-slider">
+									<div th:each="hour : ${listHourHM}" class="hour p-2">
+										<div th:text="${hour.temp_c} + '&#176;C'">13.2°C</div>
+										<img th:src="${hour.icon}" alt="Weather Icon"/>
+										<div th:text="${hour.humidity} + '%'">61%</div>
+										<div th:text="${hour.time}">12 AM</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="home-container13">
+						<div>
+							<div class="home-container15">
+								<a href="https://weather.com" class="link">More on weather.com</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
