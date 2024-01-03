@@ -1,181 +1,307 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Weather Report</title>
-<!-- Link custom CSS file -->
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
-
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
- -->
+  <head>
+    <title>Weather Report</title>
+    <meta property="og:title" content="Smart Closed Porpoise" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+	
 <style>
-body {
-	background-color: #003366;
 	
-	font-family: Arial, sans-serif;
-	color: white;
+.home-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #003366;
+}
+.home-container01 {
+  flex: 1;
+  width: 861px;
+  height: 677px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #003366;
+}
+.home-container02 {
+  width: 100%;
+  height: 57px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.home-text {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+}
+.home-container03 {
+  width: 100%;
+  height: 99px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-text1 {
+  color: rgb(255, 255, 255);
+  font-size: 80px;
+}
+.home-container04 {
+  width: 100%;
+  height: 57px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-text2 {
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+}
+.home-container05 {
+  color: var(--dl-color-success-500);
+  width: 751px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.home-text3 {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
+.home-text4 {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
+.home-text5 {
+  color: #ffffff;
+  font-size: 20px;
+}
+.home-container06 {
+  width: 100%;
+  height: 79px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-text6 {
+  color: rgb(255, 255, 255);
+  font-size: 32px;
+}
+.home-container07 {
+  width: 100%;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-container08 {
+  width: 616px;
+  height: 195px;
+}
+.home-container09 {
+  display: contents;
+}
+.home-container10 {
+  width: 100%;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-container12 {
+  display: contents;
+}
+@media(max-width: 767px) {
+  .home-container03 {
+    height: 108px;
+  }
+  .home-container04 {
+    height: 55px;
+  }
+  .home-container05 {
+    width: 608px;
+    height: 63px;
+  }
+  .home-container06 {
+    height: 76px;
+  }
+  .home-container07 {
+    height: 190px;
+  }
+}
+@media(max-width: 479px) {
+  .home-container01 {
+    width: 100%;
+    height: 729px;
+  }
+  .home-container02 {
+    width: 479px;
+  }
+  .home-container03 {
+    width: 479px;
+  }
+  .home-text1 {
+    color: rgb(255, 255, 255);
+    font-size: 80px;
+  }
+  .home-container04 {
+    width: 479px;
+  }
+  .home-container05 {
+    width: 421px;
+    height: 62px;
+  }
+  .home-container06 {
+    width: 479px;
+    height: 52px;
+  }
+  .home-text6 {
+    color: rgb(255, 255, 255);
+    font-size: 32px;
+  }
+  .home-container07 {
+    width: 479px;
+    height: 193px;
+    margin-bottom: 0px;
+  }
+  .home-container08 {
+    width: 375px;
+  }
+  .home-container10 {
+    width: 479px;
+    height: 39px;
+  }
 }
 
-.container {
-	/* width: 300px; */
-/* 	max-width: fit-content;  */
-	max-width: 50%;
-	margin: 50px auto;
-	text-align: center;
-}
-
-.temp {
-	/* Use relative font size instead of absolute */
-	font-size: 6rem;
-	font-weight: bold;
-}
-
-.condition {
-	/* Use relative font size instead of absolute */
-	font-size: 1.8rem;
-}
-
-.details {
-	display: flex;
-	justify-content: center;
 	
+	</style>
 
-}
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
 
-.detail {
-	/* Use relative font size instead of absolute */
-	font-size: 1.5rem;
-	margin: 1rem;
-	
-}
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
 
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./index.css" rel="stylesheet" />
 
+      <div class="home-container">
+        <div class="home-container01">
+          <div class="home-container02">
+            <span class="home-text">Currently</span>
+          </div>
+          <div class="home-container03">
+			<span th:text="${temp_c} + '&#176;C'" class="home-text1">11.0°C</span>
+            <!-- <span class="home-text1">22 C</span> -->
+          </div>
+          <div class="home-container04">
+			<span th:text="${text}" class="home-text2">Mist</span>
+            <!-- <span class="home-text2">Mist</span> -->
+          </div>
+          <div class="home-container05">
+			<span th:text="'High: ' + ${maxTempC} + '&#176;C'" class="home-text3">22.2°C</span>
+			<span th:text="'Low: ' + ${minTempC} + '&#176;C'" class="home-text4">11.1°C</span>
+			<span th:text="'Humidity: ' + ${humidity} + '%'" class="home-text5">94%</span>
+            <!-- <span class="home-text3">High: 22.2 C</span> -->
+            <!-- <span class="home-text4">High: 22.2 C</span> -->
+            <!-- <span class="home-text5">High: 22.2 C</span> -->
+          </div>
+          <div class="home-container06">
+			<span th:text="${name}" class="home-text6">Lucknow</span>
+            <!-- <span class="home-text6">Luckonw</span> -->
+          </div>
+          <div class="home-container07">
+            <div class="home-container08">
+              <div class="home-container09">
+                <style>
 
-.location {
-	/* Use relative font size instead of absolute */
-    font-size: 2.2rem;
-	font-weight: bold;
-}
+                  .forecast-slider {
+                  	display: flex;
+                  	overflow-x: auto;
+                  	justify-content: space-between;
 
+                  }
 
+                  .hour {
+                  	font-size: 20px;
+                  	flex: 0 0 auto;
+                  	width: 90px;
+                  	color: white;
+                  	margin: 10px;
+                  }
 
+                  .link {
+                  	color: #00a0d2;
+                  	text-decoration: none;
+                  }
+                </style>
 
-.forecast-slider {
-    width: 490px;
-    display: flex;
-    overflow-x: auto;
-    justify-content: space-between;
-    justify-content: center;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
-}
+                <div class="forecast-slider">
+                  <div th:each="hour : ${listHourHM}" class="hour p-2">
+                    <div th:text="${hour.temp_c} +  '&#176;C'"></div>
+                    <img th:src="${hour.icon}" alt="Weather Icon" />
+                    <div th:text="${hour.humidity} +  '%'"></div>
+                    <div th:text="${hour.time}">12 AM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="home-container10">
+            <div>
+              <div class="home-container12">
+                <style>
 
-.hour {
-	/* Use relative font size instead of absolute */
-	font-size: 1.2rem;
-	flex: 0 0 auto;
-    width: 7.5rem;
-}
+                  .link {
+                  	color: #00a0d2;
+                  	text-decoration: none;
+                  }
+                </style>
 
-.icon {
-	width: 40px;
-	height: 40px;
-}
-
-.link {
-	color: #00a0d2;
-	text-decoration: none;
-}
-
-/* Add media queries for different screen sizes and orientations */
-@media (max-width: 768px) {
-  /* For mobile devices, make the container and forecast-slider elements narrower */
-  .container {
-    max-width: 80%;
-  }
-  .forecast-slider {
-   
-  }
-  /* Adjust the font size of the temp and location elements */
-  .temp {
-    font-size: 4rem;
-  }
-  .location {
-    font-size: 2.4rem;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  /* For tablet devices, make the container and forecast-slider elements slightly wider */
-  .container {
-    max-width: 60%;
-  }
-.forecast-slider {
-    width: auto;
-    display: flex;
-    overflow-x: auto;
-    justify-content: space-between;
-    justify-content: center;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-}
-  /* Adjust the font size of the temp and location elements */
-  .temp {
-    font-size: 6rem;
-  }
-  .location {
-    font-size: 2.8rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  /* For laptop and desktop devices, keep the original styles */
-}
-</style>
-</head>
-<body>
-	<div class="container">
-		<div class="detail">Currently</div>
-
-		<div class="temp">
-
-			<span th:text="${temp_c} + '&#176;C'">11.0&#176;C</span>
-		</div>
-		<div class="condition">
-			<span th:text="${text}">Mist</span>
-		</div>
-		<div class="details">
-			<div class="detail">
-				High: <span th:text="${maxTempC} + '&#176;C'">22.2&#176;C</span>
-			</div>
-			<div class="detail">
-				Low: <span th:text="${minTempC} + '&#176;C'">11.1&#176;C</span>
-			</div>
-			<div class="detail">
-				Humidity: <span th:text="${humidity} + '%'">94%</span>
-			</div>
-		</div>
-		<div class="location">
-			<span th:text="${name}">Lucknow</span>
-		</div>
-		<div class="forecast-slider">
-			<div th:each="hour : ${listHourHM}" class="hour p-2">
-				<div th:text="${hour.temp_c} + '&#176;C'">13.2&#176;C</div>
-				<img th:src="${hour.icon}" alt="Weather Icon"></img>
-				<div th:text="${hour.humidity} + '%'">61%</div>
-				<div th:text="${hour.time}">12 AM</div>
-			</div>
-			
-		</div>
-
-		<a href="https://weather.com" class="link">More on weather.com</a>
-	</div>
-</body>
+                <a href="https://weather.com" class="link">
+                  More on weather.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
