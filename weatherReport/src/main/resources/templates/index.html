@@ -1,147 +1,319 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Weather Report</title>
-<!-- Add Bootstrap CDN link -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<!-- Add custom CSS style -->
+<html lang="en">
+  <head>
+    <title>index</title>
+    <meta property="og:title" content="index" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+<style data-tag="reset-style-sheet">
+  html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+</style>
+<style data-tag="default-style-sheet">
+  html {
+	font-family: Inter;
+	font-size: 16px;
+  }
+
+  body {
+	font-weight: 400;
+	font-style:normal;
+	text-decoration: none;
+	text-transform: none;
+	letter-spacing: normal;
+	line-height: 1.15;
+	color: var(--dl-color-gray-black);
+	background-color: var(--dl-color-gray-white);
+
+  }
+</style>
+
 <style>
-body {
-	background-color: #003366;
-	color: white;
-	font-family: Arial, sans-serif;
+.home-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  border-color: #0062cc;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #003366;
 }
-
-h1 {
-	color: white;
-	text-shadow: none;
-	/* Use relative font size instead of absolute */
-	font-size: 5rem;
+.home-container1 {
+  flex: 0 0 auto;
+  width: 640px;
+  height: 677px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
-
-.form-inline {
-	display: -ms-flexbox;
-	display: grid;
-	-ms-flex-flow: row wrap;
-	flex-flow: row wrap;
-	-ms-flex-align: center;
-	align-items: center;
-	text-align: center;
+.home-form {
+  width: 100%;
+  height: 587px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
 }
-
-.text-center {
-	text-align: center !important;
-	margin-bottom: revert-layer;
-	margin-bottom: 50px;
+.home-container2 {
+  width: 100%;
+  height: 157px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
-
-.mylabel {
-	font-family: Arial, sans-serif;
-	color: white;
-	margin-right: 10px;
-	/* Use relative font size instead of absolute */
-	font-size: 1.5rem;
+.home-text {
+  color: rgb(255, 255, 255);
+  font-size: 60px;
 }
-
-.form-control {
-	border-radius: none;
-	background-color: #003366;
-	border: none;
-	border-bottom: 2px solid white;
-	color: white;
+.home-container3 {
+  width: 100%;
+  height: 183px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.btn {
-	align-content: center;
-	border: none;
-	background-color: #00ccff;
-	color: black;
-	font-weight: bold;
-	margin-top: 50px;
+.home-text1 {
+  color: #ffffff;
+  font-size: 35px;
 }
-
-.container {
-	background-color: #003366;
-	border: none;
+.home-textinput {
+  color: var(--dl-color-gray-white);
+  border: none;
+  border-bottom: 2px solid white;
+  border-radius: none;
+  background-color: #003366;
 }
-
-/* Add media queries for different screen sizes and orientations */
-@media (max-width: 576px) {
-  /* For mobile devices, make the form elements stack vertically */
-  .form-inline {
-    display: block;
+.home-container4 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-button {
+  color: black;
+  border: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: #00ccff;
+}
+@media(max-width: 1200px) {
+  .home-container1 {
+    width: 640px;
+    height: 680px;
   }
-  /* Adjust the margin and width of the input and button */
-  .form-control {
-    margin: 10px auto;
-    width: 80%;
-  }
-  .btn {
-    margin: 10px auto;
-    width: 80%;
-  }
+  
 }
-
-
-
-@media (min-width: 576px) and (max-width: 769px) {
-  /* For small tablet devices, make the form elements slightly smaller */
-
-.form-inline .form-group {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    -ms-flex-align: center;
+@media(max-width: 991px) {
+  .home-container1 {
+    width: 570px;
+  }
+  .home-form {
+    width: 100%;
+  }
+  
+}
+@media(max-width: 767px) {
+  .home-container {
     align-items: center;
-    margin-bottom: 0;
-}
-}
-
-
-
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* For tablet devices, make the form elements slightly smaller */
-  .form-control {
-    width: 40%;
   }
-  .btn {
-    width: 40%;
+  .home-container1 {
+    width: 550px;
+    height: 670px;
+    margin-bottom: 0px;
   }
+  .home-form {
+    align-items: center;
+  }
+ 
 }
-
-@media (min-width: 1025px) {
-  /* For laptop and desktop devices, make the form elements larger */
-  .form-control {
-    width: 60%;
+@media(max-width: 479px) {
+  .home-container {
+    align-items: center;
+    flex-direction: column;
   }
-  .btn {
-    width: 50%;
+  .home-container1 {
+    width: 350px;
+    height: 700px;
+  }
+  .home-form {
+    height: 461px;
+  }
+  .home-container2 {
+    width: 100%;
+    height: 108px;
+    align-items: flex-end;
+  }
+  .home-text {
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+  }
+  .home-container3 {
+    height: 131px;
+  }
+  .home-text1 {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+  }
+  .home-textinput {
+    width: 182px;
+    height: 29px;
+    align-self: center;
+    text-align: left;
+
+  }
+  .home-button {
+    font-size: 16px;
+    
   }
 }
 </style>
-</head>
-<body>
-	<div class="container mt-5">
-		<h1 class="text-center">Weather Report</h1>
-		<br>
-		<form action="/forecast" class="form-inline justify-content-center">
-			<div class="form-group">
-				<label for="param" class="mylabel">Enter Location :</label> <input
-					type="text" name="param" id="param" class="form-control"
-					placeholder="e.g. Your City Name">
 
-			</div>
-			<div>
-				<button type="submit" class="btn btn-primary ml-2">Show
-					Weather Report</button>
-			</div>
-		</form>
-	</div>
-</body>
+<style>
+:root {
+  --dl-color-gray-500: #595959;
+  --dl-color-gray-700: #999999;
+  --dl-color-gray-900: #D9D9D9;
+  --dl-size-size-large: 144px;
+  --dl-size-size-small: 48px;
+  --dl-color-danger-300: #A22020;
+  --dl-color-danger-500: #BF2626;
+  --dl-color-danger-700: #E14747;
+  --dl-color-gray-black: #000000;
+  --dl-color-gray-white: #FFFFFF;
+  --dl-size-size-medium: 96px;
+  --dl-size-size-xlarge: 192px;
+  --dl-size-size-xsmall: 16px;
+  --dl-space-space-unit: 16px;
+  --dl-color-primary-100: #003EB3;
+  --dl-color-primary-300: #0074F0;
+  --dl-color-primary-500: #14A9FF;
+  --dl-color-primary-700: #85DCFF;
+  --dl-color-success-300: #199033;
+  --dl-color-success-500: #32A94C;
+  --dl-color-success-700: #4CC366;
+  --dl-size-size-xxlarge: 288px;
+  --dl-size-size-maxwidth: 1400px;
+  --dl-radius-radius-round: 50%;
+  --dl-space-space-halfunit: 8px;
+  --dl-space-space-sixunits: 96px;
+  --dl-space-space-twounits: 32px;
+  --dl-radius-radius-radius2: 2px;
+  --dl-radius-radius-radius4: 4px;
+  --dl-radius-radius-radius8: 8px;
+  --dl-space-space-fiveunits: 80px;
+  --dl-space-space-fourunits: 64px;
+  --dl-space-space-threeunits: 48px;
+  --dl-space-space-oneandhalfunits: 24px;
+}
+.button {
+  color: var(--dl-color-gray-black);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: 0069d9;
+}
+.input {
+  color: var(--dl-color-gray-black);
+  cursor: auto;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.textarea {
+  color: var(--dl-color-gray-black);
+  cursor: auto;
+  padding: 0.5rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.list {
+  width: 100%;
+  margin: 1em 0px 1em 0px;
+  display: block;
+  padding: 0px 0px 0px 1.5rem;
+  list-style-type: none;
+  list-style-position: outside;
+}
+.list-item {
+  display: list-item;
+}
+.teleport-show {
+  display: flex !important;
+  transform: none !important;
+}
+.Heading {
+  font-size: 32px;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+.Content {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+
+</style>
+
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+  data-tag="font"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+/>
+  </head>
+  <body>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./index.css" rel="stylesheet" />
+
+      <div class="home-container">
+        <div class="home-container1">
+          <form action="/forecast"   class="home-form">
+            <div class="home-container2">
+              <span class="home-text">WEATHER REPORT</span>
+            </div>
+            <div class="home-container3">
+              <span class="home-text1">Enter Location:&nbsp;</span>
+              <input
+                type="text"
+                name="param"
+                id="param"
+                required=""
+                placeholder="e.g. Your City Name"
+                class="home-textinput input"
+              />
+            </div>
+            <div class="home-container4">
+              <button type="submit" class="home-button button">
+                Show Weather Report
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

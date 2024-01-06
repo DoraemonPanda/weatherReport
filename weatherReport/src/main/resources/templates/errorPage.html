@@ -1,130 +1,301 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Weather Report</title>
-<!-- Add Bootstrap CDN link -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<!-- Add custom CSS style -->
-<style>
-body {
-	background-color: #003366;
-	color: white;
-	font-family: Arial, sans-serif;
-}
+<html lang="en">
+  <head>
+    <title>Copy of index</title>
+    <meta property="og:title" content="Copy of index" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
 
-h1 {
-	color: #F31111;
-	text-shadow: none;
-	/* Use relative font size instead of absolute */
-	font-size: 5rem;
-}
+<style data-tag="reset-style-sheet">
+  html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+</style>
+<style data-tag="default-style-sheet">
+  html {
+	font-family: Inter;
+	font-size: 16px;
+  }
 
-.form-inline {
-	display: -ms-flexbox;
-	display: grid;
-	-ms-flex-flow: row wrap;
-	flex-flow: row wrap;
-	-ms-flex-align: center;
-	align-items: center;
-	text-align: center;
-}
-
-.text-center {
-	text-align: center !important;
-	margin-bottom: revert-layer;
-}
-
-.mylabel {
-	font-family: Arial, sans-serif;
-	color: white;
-	margin: 0 auto;
-	/* Use relative font size instead of absolute */
-	font-size: 1.5rem;
-	text-align: center;
-	max-width: fit-content;
-	padding-bottom: 50px;
-}
-
-.form-control {
-	border-radius: none;
-	background-color: #003366;
-	border: none;
-	border-bottom: 2px solid white;
-	color: white;
-}
-
-.btn {
-	align-content: center;
-	border: none;
-	background-color: #00ccff;
-	color: black;
-	font-weight: bold;
-	margin-top: 50px;
-}
-
-.link {
-	color: #00a0d2;
+  body {
+	font-weight: 400;
+	font-style:normal;
 	text-decoration: none;
-}
+	text-transform: none;
+	letter-spacing: normal;
+	line-height: 1.15;
+	color: var(--dl-color-gray-black);
+	background-color: var(--dl-color-gray-white);
 
-.container {
-	background-color: #003366;
-	border: none;
-}
+  }
+</style>
 
-/* Add media queries for different screen sizes and orientations */
-@media (max-width: 768px) {
-  /* For mobile devices, make the label and link elements stack vertically */
-  .form-inline {
-    display: block;
-  }
-  /* Adjust the margin and width of the label and link elements */
-  .mylabel {
-    margin: 10px auto;
-    width: 80%;
-  }
-  .link {
-    margin: 10px auto;
-    width: 80%;
+<style>
+.home-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  border-color: #0062cc;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #003366;
+}
+.home-container1 {
+  flex: 0 0 auto;
+  width: 640px;
+  height: 677px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.home-form {
+  width: 100%;
+  height: 587px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.home-container2 {
+  width: 100%;
+  height: 157px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.home-text {
+  color: #ff3c3c;
+  font-size: 60px;
+}
+.home-container3 {
+  width: 100%;
+  height: 183px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-text1 {
+  color: white;
+  font-size: 35px;
+  max-width: 100%;
+  text-align: center;
+}
+.home-container4 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+}
+.home-link {
+  color: #00a0d2;
+}
+@media(max-width: 1200px) {
+  .home-container1 {
+    width: 640px;
+    height: 680px;
   }
 }
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* For tablet devices, make the label and link elements slightly smaller */
-  .mylabel {
-    width: 60%;
+@media(max-width: 991px) {
+  .home-container1 {
+    width: 570px;
   }
-  .link {
-    width: 20%;
+  .home-form {
+    width: 100%;
   }
 }
-
-@media (min-width: 1025px) {
-  /* For laptop and desktop devices, make the label and link elements larger */
-  .mylabel {
-    width: 80%;
+@media(max-width: 767px) {
+  .home-container {
+    align-items: center;
   }
-  .link {
-    width: 40%;
+  .home-container1 {
+    width: 550px;
+    height: 670px;
+    margin-bottom: 0px;
+  }
+  .home-form {
+    align-items: center;
+  }
+}
+@media(max-width: 479px) {
+  .home-container {
+    align-items: center;
+    flex-direction: column;
+  }
+  .home-container1 {
+    width: 350px;
+    height: 700px;
+  }
+  .home-form {
+    height: 461px;
+  }
+  .home-container2 {
+    width: 100%;
+    height: 108px;
+    align-items: flex-end;
+  }
+  .home-text {
+    color: rgb(255, 60, 60);
+    font-size: 35px;
+  }
+  .home-container3 {
+    height: 130px;
+    padding-top: 0px;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .home-text1 {
+    color: white;
+    font-size: 20px;
+  }
+  .home-link {
+    font-size: 12px;
   }
 }
 </style>
-</head>
-<body>
-	<div class="container mt-5">
-		<h1 class="text-center">INVALID INPUT</h1>
-		<br>
-		<form action="/forecast" class="form-inline justify-content-center">
-			<div class="form-group">
-				<label for="param" class="mylabel">Please Enter Valid Input
-					Like City Name, IP Address Or Latitude,Longitude</label>
-			</div>
-			<div>
-				<a href="/index" class="link">Back to home page</a>
-			</div>
-		</form>
-	</div>
-</body>
+
+<style>
+:root {
+  --dl-color-gray-500: #595959;
+  --dl-color-gray-700: #999999;
+  --dl-color-gray-900: #D9D9D9;
+  --dl-size-size-large: 144px;
+  --dl-size-size-small: 48px;
+  --dl-color-danger-300: #A22020;
+  --dl-color-danger-500: #BF2626;
+  --dl-color-danger-700: #E14747;
+  --dl-color-gray-black: #000000;
+  --dl-color-gray-white: #FFFFFF;
+  --dl-size-size-medium: 96px;
+  --dl-size-size-xlarge: 192px;
+  --dl-size-size-xsmall: 16px;
+  --dl-space-space-unit: 16px;
+  --dl-color-primary-100: #003EB3;
+  --dl-color-primary-300: #0074F0;
+  --dl-color-primary-500: #14A9FF;
+  --dl-color-primary-700: #85DCFF;
+  --dl-color-success-300: #199033;
+  --dl-color-success-500: #32A94C;
+  --dl-color-success-700: #4CC366;
+  --dl-size-size-xxlarge: 288px;
+  --dl-size-size-maxwidth: 1400px;
+  --dl-radius-radius-round: 50%;
+  --dl-space-space-halfunit: 8px;
+  --dl-space-space-sixunits: 96px;
+  --dl-space-space-twounits: 32px;
+  --dl-radius-radius-radius2: 2px;
+  --dl-radius-radius-radius4: 4px;
+  --dl-radius-radius-radius8: 8px;
+  --dl-space-space-fiveunits: 80px;
+  --dl-space-space-fourunits: 64px;
+  --dl-space-space-threeunits: 48px;
+  --dl-space-space-oneandhalfunits: 24px;
+}
+.button {
+  color: var(--dl-color-gray-black);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: 0069d9;
+}
+.input {
+  color: var(--dl-color-gray-black);
+  cursor: auto;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.textarea {
+  color: var(--dl-color-gray-black);
+  cursor: auto;
+  padding: 0.5rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.list {
+  width: 100%;
+  margin: 1em 0px 1em 0px;
+  display: block;
+  padding: 0px 0px 0px 1.5rem;
+  list-style-type: none;
+  list-style-position: outside;
+}
+.list-item {
+  display: list-item;
+}
+.teleport-show {
+  display: flex !important;
+  transform: none !important;
+}
+.Heading {
+  font-size: 32px;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+.Content {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+
+</style>
+
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./index.css" rel="stylesheet" />
+
+      <div class="home-container">
+        <div class="home-container1">
+          <form class="home-form">
+            <div class="home-container2">
+              <span class="home-text">INVALID INPUT</span>
+            </div>
+            <div class="home-container3">
+              <label class="home-text1">
+                Please Enter Valid Input Like City Name, IP Address Or
+                Latitude,Longitude
+              </label>
+            </div>
+            <div class="home-container4">
+              <a
+                href="/index"
+                target="_blank"
+                rel="noreferrer noopener"
+                class="home-link"
+              >
+                Back to home page
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
